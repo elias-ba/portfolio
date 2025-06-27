@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias W. BA - Building AI Solutions for Real-World Impact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #10b981;
+            --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: white;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.875rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-meta strong {
+            color: var(--text-primary);
+            margin-right: 0.5rem;
+        }
+
+        .reference-info {
+            color: var(--text-secondary);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-section h4 {
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-section p, .project-section ul {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .project-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .project-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .impact-metric {
+            background: #f0fdf4;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+
+        .impact-metric strong {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-links {
+            margin-top: 2rem;
+        }
+
+        .about-links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-links a:hover {
+            text-decoration: underline;
+        }
+
+        .highlights {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .highlight-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .highlight-item:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-email {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-email:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tech-stack {
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">Elias W. BA</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Building AI Solutions for Real-World Impact</h1>
+        <p class="tagline">Senior Software Engineer specializing in scalable systems and machine learning</p>
+        <p class="hero-description">
+            I design and build AI-powered systems that solve complex problems in healthcare, finance, and logistics across Africa. 
+            From clinical triage platforms to computer vision for retail, I focus on creating technology that works in resource-constrained environments.
+        </p>
+        <a href="#projects" class="cta-button">View My Work</a>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Deep dives into complex technical challenges and their solutions</p>
+            
+            <div class="projects-grid">
+                <!-- Project 1: AI Clinical Triage -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI-Powered Clinical Triage System</h3>
+                        <p class="project-subtitle">Reducing emergency room wait times through intelligent patient prioritization</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> Haskè Ventures</span>
+                            <span class="reference-info"><strong>Reference:</strong> Madji Sock, CEO (madji.sock@haskeventures.com)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>Healthcare facilities in Senegal face overwhelming patient volumes with limited staff. Nurses spend valuable time on manual triage, leading to delays for critical cases and inefficient resource allocation.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Solution</h4>
+                            <ul>
+                                <li>Designed ML models that analyze patient symptoms and vital signs to predict urgency levels with 94% accuracy</li>
+                                <li>Built secure, HIPAA-compliant backend with role-based access control for different staff levels</li>
+                                <li>Implemented audit-ready data schemas for regulatory compliance</li>
+                                <li>Created real-time dashboards for hospital administrators to monitor patient flow</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>40% reduction</strong> in average wait time for critical patients
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technical Deep Dive</h4>
+                            <p>The system uses ensemble methods combining gradient boosting and neural networks to handle incomplete patient data—a common challenge in African healthcare settings. I implemented a custom feature engineering pipeline that extracts patterns from unstructured clinical notes in French and Wolof.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Used</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">XGBoost</span>
+                                <span class="tech-tag">HuggingFace</span>
+                                <span class="tech-tag">Llama</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">RBAC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Pasteur Institute -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI Project Evaluation for Grand Challenges</h3>
+                        <p class="project-subtitle">Technical review of innovative AI solutions for global health impact</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> Institut Pasteur de Dakar</span>
+                            <span class="reference-info"><strong>Reference:</strong> Ndeye Mbey Samb, Project Coordinator (NdeyeMbey.Samb@pasteur.sn)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>The Grand Challenges grant program needed expert evaluation of AI proposals targeting health challenges in Africa. Projects ranged from disease detection to healthcare delivery optimization, requiring deep technical assessment and strategic vision.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Role</h4>
+                            <ul>
+                                <li>Critically assessed 30+ AI project proposals for technical feasibility and innovation</li>
+                                <li>Evaluated scalability potential and alignment with African health priorities</li>
+                                <li>Provided detailed technical feedback to enhance project proposals</li>
+                                <li>Collaborated with multidisciplinary panels including medical experts and policymakers</li>
+                                <li>Focused on ensuring proposed solutions could work in resource-constrained settings</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>$2M+ in funding</strong> allocated to high-impact AI health projects
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Evaluation Framework</h4>
+                            <p>I developed criteria for assessing AI projects in African contexts: technical robustness, local data availability, infrastructure requirements, sustainability without continuous external support, and potential for real health outcome improvements. This framework is now used for future grant cycles.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Expertise Applied</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">AI/ML Assessment</span>
+                                <span class="tech-tag">Health Tech</span>
+                                <span class="tech-tag">Impact Evaluation</span>
+                                <span class="tech-tag">Technical Writing</span>
+                                <span class="tech-tag">Strategic Planning</span>
+                                <span class="tech-tag">Grant Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Force-N -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">National AI & Data Science Curriculum Development</h3>
+                        <p class="project-subtitle">Designing applied learning programs for Senegal's digital transformation</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> Force-N</span>
+                            <span class="reference-info"><strong>References:</strong> Seydina M. Ndiaye, UN AI Advisory Board (seydina.ndiaye@unchk.edu.sn) | Fadel Thior, Lead AI (fadel.thior@unchk.edu.sn)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>Senegal needed to rapidly upskill its workforce in AI and data science to compete globally. Existing educational programs were too theoretical, disconnected from industry needs, and didn't address local use cases or French-language resources.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>What I Created</h4>
+                            <ul>
+                                <li>Designed comprehensive curricula for ML, data engineering, and NLP courses</li>
+                                <li>Created 40+ hands-on projects using real African datasets and challenges</li>
+                                <li>Developed learning paths aligned with actual job market requirements</li>
+                                <li>Integrated case studies from Senegalese companies and government initiatives</li>
+                                <li>Built assessment frameworks ensuring practical skills over theoretical knowledge</li>
+                                <li>Trained instructors on project-based learning methodologies</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>500+ students</strong> enrolled in first cohort with 85% job placement
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Curriculum Innovation</h4>
+                            <p>Rather than translating Western curricula, I built programs from scratch addressing African realities: working with limited compute resources, handling multilingual data, solving problems in agriculture, healthcare, and financial inclusion. Each module includes real projects from local companies.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Taught</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">HuggingFace</span>
+                                <span class="tech-tag">Llama</span>
+                                <span class="tech-tag">Apache Spark</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">MLOps</span>
+                                <span class="tech-tag">Data Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: KaiKai Health Data -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI-Driven Health Data Systems for African Governments</h3>
+                        <p class="project-subtitle">Deploying national-scale health analytics in Rwanda and Sierra Leone</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> KaiKai (GIZ-funded initiatives)</span>
+                            <span class="reference-info"><strong>Reference:</strong> Nils Kaiser, CEO (nils@kaikai.dev)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>African health ministries struggle with fragmented data systems, making it impossible to track disease outbreaks, allocate resources, or measure intervention impacts. They need unified analytics that work with limited infrastructure.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Solution</h4>
+                            <ul>
+                                <li>Designed AI systems for automated health data collection and analysis across multiple districts</li>
+                                <li>Built real-time dashboards for Ministry of Health officials in Sierra Leone</li>
+                                <li>Implemented predictive models for disease outbreak detection using limited data</li>
+                                <li>Created offline-first architecture that syncs when connectivity is available</li>
+                                <li>Delivered strategic guidance on AI deployment in resource-constrained environments</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>2 countries</strong> with national health systems transformed
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Strategic Impact</h4>
+                            <p>Beyond technical implementation, I worked directly with government officials to ensure sustainable adoption. This included training local teams, establishing data governance frameworks, and designing systems that respect data sovereignty while enabling cross-border health surveillance.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Used</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Apache Superset</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">DHIS2 API</span>
+                                <span class="tech-tag">HuggingFace</span>
+                                <span class="tech-tag">Llama</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Prophet</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Grafana</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: GalsenAI -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">GalsenAI: Building West Africa's Largest AI Community</h3>
+                        <p class="project-subtitle">From zero to 2,000+ AI practitioners driving local innovation</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Initiative:</strong> GalsenAI (Founder & President)</span>
+                            <span class="reference-info"><strong>Reference:</strong> Derguene Mbaye, Current President (mbayederguene97@gmail.com)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>West Africa had brilliant minds interested in AI but no ecosystem to support them. International resources didn't address local challenges like working with African languages, limited compute resources, or region-specific use cases.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>What I Built</h4>
+                            <ul>
+                                <li>Founded and scaled the community from scratch to 2,000+ active members</li>
+                                <li>Organized 50+ workshops, hackathons, and meetups across Senegal</li>
+                                <li>Led research projects on NLP for Wolof and other local languages</li>
+                                <li>Created mentorship programs pairing experienced engineers with beginners</li>
+                                <li>Established partnerships with Deep Learning Indaba and international AI organizations</li>
+                                <li>Launched open-source projects addressing African-specific challenges</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>100+ engineers</strong> placed in AI roles through our programs
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Community Engineering</h4>
+                            <p>Building a technical community requires more than organizing events. I created sustainable structures: a core team of volunteers, funding models through corporate partnerships, and knowledge-sharing platforms. The community continues to thrive independently, proving the model's success.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Key Initiatives</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">HuggingFace</span>
+                                <span class="tech-tag">Llama</span>
+                                <span class="tech-tag">Jupyter Notebooks</span>
+                                <span class="tech-tag">Git/GitHub</span>
+                                <span class="tech-tag">NLP Libraries</span>
+                                <span class="tech-tag">Community Building</span>
+                                <span class="tech-tag">Technical Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Retail Computer Vision -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">WhatsApp-Integrated Inventory Management for Informal Retail</h3>
+                        <p class="project-subtitle">Computer vision solution for West African shop owners with basic smartphones</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> Lengo AI</span>
+                            <span class="reference-info"><strong>References:</strong> Max Smith, CEO (max@lengo.ai) | Ismaila Seck, CTO (ismaila@lengo.ai)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>Small shop owners in West Africa need inventory management but lack resources for traditional systems. They have smartphones with poor cameras, unreliable internet, and no technical training.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Solution</h4>
+                            <ul>
+                                <li>Built OCR pipeline resilient to blur, poor lighting, and off-angle captures using TrOCR</li>
+                                <li>Developed YOLO-based object detection trained on 50,000+ images of African retail products</li>
+                                <li>Created WhatsApp bot interface allowing shopkeepers to send photos and receive inventory counts</li>
+                                <li>Implemented edge processing to minimize bandwidth usage</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>2,000+ shops</strong> using the system across Senegal
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Key Innovation</h4>
+                            <p>Traditional computer vision fails in these environments. I developed a multi-stage preprocessing pipeline that enhances image quality before analysis, and trained models specifically on low-quality footage. The system learns from corrections, improving accuracy for each shop's specific inventory over time.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Used</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">YOLO v5</span>
+                                <span class="tech-tag">TrOCR</span>
+                                <span class="tech-tag">HuggingFace</span>
+                                <span class="tech-tag">Llama</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">WhatsApp Business API</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">AWS S3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Customs Automation -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Automated Customs Data Extraction System</h3>
+                        <p class="project-subtitle">Transforming manual logistics workflows at CMA CGM</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Client:</strong> CMA CGM</span>
+                            <span class="reference-info"><strong>Reference:</strong> Fode Sy, CTO (DKA.FSY@cma-cgm.com)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>CMA CGM staff manually processed hundreds of Bill of Lading forms daily from Senegal's Gaïndé customs portal. Each form took 15-20 minutes to process, creating bottlenecks and human errors in international shipping operations.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Solution</h4>
+                            <ul>
+                                <li>Reverse-engineered the Gaïndé portal's JavaScript-heavy interface</li>
+                                <li>Built Selenium-based scraper handling dynamic content and CAPTCHA challenges</li>
+                                <li>Created intelligent parsing system for inconsistent form formats</li>
+                                <li>Developed Excel generation pipeline matching CMA CGM's internal workflows</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>80% reduction</strong> in manual data entry time
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technical Challenges Overcome</h4>
+                            <p>The customs portal used aggressive anti-bot measures. I implemented human-like interaction patterns, distributed scraping across time windows, and built a robust error recovery system. The parser handles 47 different form variations using regex patterns and fuzzy matching.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Used</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium WebDriver</span>
+                                <span class="tech-tag">BeautifulSoup4</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">OpenPyXL</span>
+                                <span class="tech-tag">Regular Expressions</span>
+                                <span class="tech-tag">Cron Jobs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Open Source -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Lightning: Open-Source Data Integration Platform</h3>
+                        <p class="project-subtitle">Leading development of workflow automation for international development</p>
+                        <div class="project-meta">
+                            <span class="client-info"><strong>Organization:</strong> Open Function Group</span>
+                            <span class="reference-info"><strong>Reference:</strong> Ayodele Adeyemo, Product Manager (christad92@gmail.com)</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h4>The Challenge</h4>
+                            <p>NGOs and health organizations struggle to connect disparate data systems. They need to sync data between CommCare, DHIS2, Salesforce, and custom databases without technical expertise or expensive consultants.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>My Contributions</h4>
+                            <ul>
+                                <li>Architected the backend using Elixir for high concurrency and fault tolerance</li>
+                                <li>Designed the workflow engine supporting complex data transformations</li>
+                                <li>Built secure credential management system for sensitive health data</li>
+                                <li>Implemented real-time monitoring and error recovery mechanisms</li>
+                                <li>Led team of 6 engineers through agile development process</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impact-metric">
+                            <strong>500+ organizations</strong> using Lightning across 40 countries
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Open Source Impact</h4>
+                            <p>Lightning is fully open-source, allowing organizations to own their data infrastructure. I've mentored 20+ contributors, conducted code reviews, and established coding standards that ensure maintainability as the project scales.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>Technologies Used</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Elixir</span>
+                                <span class="tech-tag">Phoenix Framework</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">JavaScript/React</span>
+                                <span class="tech-tag">Oban</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">GitHub Actions</span>
+                                <span class="tech-tag">REST APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About My Approach</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Building Technology for African Contexts</h3>
+                    <p>
+                        With over 10 years of experience, I specialize in creating AI and software solutions that work in resource-constrained environments. My work spans healthcare, logistics, finance, and retail—always with a focus on real-world impact.
+                    </p>
+                    <p>
+                        I founded GalsenAI, West Africa's largest AI community with 2,000+ members, because I believe in growing local tech ecosystems. Through mentorship and open-source contributions, I'm helping build the next generation of African engineers.
+                    </p>
+                    <p>
+                        My approach combines technical excellence with deep understanding of local contexts. Whether it's handling multilingual data, working with limited connectivity, or designing for users with basic devices, I build systems that actually get adopted and create value.
+                    </p>
+                    <div class="about-links">
+                        <a href="https://github.com/elias-ba" target="_blank">
+                            <span>→</span> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/eliaswalyba" target="_blank">
+                            <span>→</span> LinkedIn
+                        </a>
+                        <a href="https://x.com/eliaswalyba" target="_blank">
+                            <span>→</span> Twitter
+                        </a>
+                    </div>
+                </div>
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <h4>Technical Leadership</h4>
+                        <p>Led teams of up to 20 engineers across distributed projects, establishing best practices and mentoring junior developers</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Community Building</h4>
+                        <p>Founded and scaled GalsenAI from 0 to 2,000+ members, organizing workshops, hackathons, and research initiatives</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Speaking & Teaching</h4>
+                        <p>Regular speaker at conferences including Deep Learning Indaba, and curriculum designer for national AI programs</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Open Source</h4>
+                        <p>Active contributor and maintainer of projects used by 500+ organizations worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Let's Build Something Together</h2>
+            <p>I'm available for consulting on AI systems, technical leadership, and building engineering teams.</p>
+            <a href="mailto:eliaswalyba@gmail.com" class="contact-email">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Elias W. BA. Built with simplicity and purpose.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
